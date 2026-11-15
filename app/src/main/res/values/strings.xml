@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">منقذ</string>
+    <string name="no_app_for_link">لا يوجد تطبيق مناسب لفتح هذا الرابط</string>
+</resources>
