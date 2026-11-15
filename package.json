@@ -1,0 +1,11 @@
+{
+  "name": "monqeth-roadside",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i input.css -o app.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

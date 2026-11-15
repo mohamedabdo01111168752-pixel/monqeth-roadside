@@ -1,0 +1,706 @@
+﻿<!doctype html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="منقذ — مساعدة طريق وسحب 24/7، تسعير واضح قبل الانطلاق، وفنيون موثوقون أينما كنت.">
+  <title>منقذ — طريقك أأمن معنا</title>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("monqeth-theme") || localStorage.getItem("sanad-theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="app.css">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #101827;
+      --muted: #64748b;
+      --paper: #f7f8fa;
+      --card: #ffffff;
+      --line: #e7eaf0;
+      --amber: #ffb629;
+      --amber-strong: #f59e0b;
+    }
+    html.dark {
+      color-scheme: dark;
+      --ink: #f4f6fb;
+      --muted: #9aa8bb;
+      --paper: #0c1421;
+      --card: #121e2e;
+      --line: #253348;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Tahoma, Arial, sans-serif;
+      transition: background-color .25s ease, color .25s ease;
+    }
+    .theme-surface { background-color: var(--card); }
+    .theme-page { background-color: var(--paper); }
+    .theme-line { border-color: var(--line); }
+    .theme-muted { color: var(--muted); }
+    .hero-grid {
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+    .map-grid {
+      background-color: #152338;
+      background-image: linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    html:not(.dark) header nav .text-white,
+    html:not(.dark) #home {
+      color: #101827;
+    }
+    html:not(.dark) header nav .text-slate-200,
+    html:not(.dark) header nav .text-slate-300,
+    html:not(.dark) #home .text-slate-200,
+    html:not(.dark) #home .text-slate-300,
+    html:not(.dark) #home .text-slate-400 {
+      color: #526176;
+    }
+    html:not(.dark) header nav button {
+      border-color: rgba(16, 24, 39, .2);
+      color: #101827;
+    }
+    html:not(.dark) header nav button:hover { background-color: rgba(16, 24, 39, .06); }
+    html:not(.dark) #home {
+      background-color: #f7f8fa;
+      background-image: radial-gradient(ellipse at 82% 4%, rgba(255,182,41,.12), transparent 36%);
+    }
+    html:not(.dark) #home .hero-grid {
+      background-image: linear-gradient(rgba(16,24,39,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(16,24,39,.045) 1px, transparent 1px);
+    }
+    html:not(.dark) #home .border-white\/10 { border-color: rgba(16,24,39,.12); }
+    html:not(.dark) #home .border-white\/20 { border-color: rgba(16,24,39,.22); }
+    html:not(.dark) #home .bg-white\/\[\.06\] { background-color: rgba(16,24,39,.045); }
+    html:not(.dark) #home .hover\:bg-white\/5:hover { background-color: rgba(16,24,39,.045); }
+    html:not(.dark) #home .map-grid {
+      background-color: #e8edf3;
+      background-image: linear-gradient(rgba(16,24,39,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(16,24,39,.07) 1px, transparent 1px);
+      border-color: rgba(16,24,39,.12);
+    }
+    html:not(.dark) #home .map-grid .bg-slate-400 { background-color: #a7b3c2; }
+    html:not(.dark) #home .map-grid .bg-\[\#152338\] { background-color: #e8edf3; }
+    html:not(.dark) #home .map-grid .bg-\[\#101827\] {
+      background-color: rgba(255,255,255,.96);
+      color: #101827;
+    }
+    html:not(.dark) #home .bg-\[\#1a283a\] {
+      background-color: rgba(255,255,255,.96);
+      color: #101827;
+    }
+    html:not(.dark) #home .text-white { color: #101827; }
+    html:not(.dark) footer {
+      background-color: #fff;
+      color: #101827;
+    }
+    html:not(.dark) footer .border-white\/10 { border-color: #e7eaf0; }
+    html:not(.dark) footer .text-slate-300 { color: #526176; }
+    html:not(.dark) footer .text-slate-400,
+    html:not(.dark) footer .text-slate-500 { color: #64748b; }
+    html:not(.dark) .plan-card {
+      background-color: #fff;
+      color: #101827;
+      border: 1px solid #e7eaf0;
+    }
+    html:not(.dark) .plan-card .text-slate-400 { color: #64748b; }
+    html:not(.dark) .plan-card .text-slate-200 { color: #334155; }
+    html:not(.dark) .plan-card .text-slate-500 { color: #64748b; }
+    html:not(.dark) .plan-card .bg-white\/10 { background-color: #e7eaf0; }
+    html:not(.dark) .plan-card .border-white\/10 { border-color: #e7eaf0; }
+    .depth-card {
+      transform: perspective(1100px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(0);
+      transform-style: preserve-3d;
+      box-shadow: 0 12px 28px rgba(16, 24, 39, .07), 0 2px 6px rgba(16, 24, 39, .04);
+      transition: transform .3s ease, box-shadow .3s ease, background-color .25s ease, border-color .25s ease;
+    }
+    .depth-card:hover {
+      transform: perspective(1100px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(-6px) translateZ(8px);
+      box-shadow: 0 24px 48px rgba(16, 24, 39, .13), 0 8px 16px rgba(16, 24, 39, .06);
+    }
+    .site-section { position: relative; isolation: isolate; }
+    .site-section::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: radial-gradient(ellipse at 8% 12%, rgba(245,158,11,.055), transparent 30%);
+      content: "";
+      pointer-events: none;
+    }
+    .section-heading { transform: perspective(900px) translateZ(18px); transform-style: preserve-3d; }
+    .step-number {
+      transform: translateZ(24px);
+      box-shadow: 0 8px 0 rgba(245,158,11,.22), 0 15px 25px rgba(245,158,11,.14);
+    }
+    .progress-track { position: fixed; z-index: 60; inset: 0 0 auto; height: 3px; pointer-events: none; }
+    #reading-progress { height: 100%; width: 0; background: var(--amber); transform-origin: right; }
+    .mobile-nav[hidden] { display: none; }
+    .mobile-nav a { display: block; padding: .8rem 1rem; border-radius: .75rem; }
+    .mobile-nav a:hover { background: rgba(148,163,184,.12); }
+    :focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
+    .pricing-card { min-height: 100%; }
+    section[id] { scroll-margin-top: 5.5rem; }
+    .site-header { transition: background-color .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .site-header.is-scrolled {
+      background-color: var(--card);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(15,23,42,.08);
+    }
+    .site-header.is-scrolled nav a.text-white,
+    .site-header.is-scrolled nav button { color: var(--ink); }
+    .site-header.is-scrolled nav .text-slate-200,
+    .site-header.is-scrolled nav .text-slate-300 { color: var(--muted); }
+    .site-header.is-scrolled nav button { border-color: var(--line); }
+    .site-header.is-scrolled nav button:hover { background-color: rgba(148,163,184,.12); }
+    html:not(.dark) .mobile-nav { background: rgba(255,255,255,.97); color: #101827; border-color: #e7eaf0; }
+    html.dark .mobile-nav { background: rgba(18,30,46,.97); color: #f4f6fb; border-color: #253348; }
+    html:not(.dark) .steps-band { background: linear-gradient(135deg,#fff7e6,#fff 70%); }
+    html.dark .steps-band { background: linear-gradient(135deg,#17263a,#0c1421 70%); }
+    .scene-3d { perspective: 1200px; }
+    .scene-3d .map-grid {
+      transform: rotateY(calc(-5deg + var(--tilt-y, 0deg))) rotateX(calc(2deg + var(--tilt-x, 0deg)));
+      transform-style: preserve-3d;
+      box-shadow: 22px 30px 60px rgba(0, 0, 0, .24), 0 0 0 1px rgba(255,255,255,.1);
+      transition: transform .45s ease, box-shadow .45s ease, background-color .25s ease;
+    }
+    .scene-3d:hover .map-grid {
+      transform: rotateY(calc(-2deg + var(--tilt-y, 0deg))) rotateX(calc(1deg + var(--tilt-x, 0deg))) translateY(-4px);
+      box-shadow: 28px 38px 70px rgba(0, 0, 0, .28), 0 0 0 1px rgba(255,255,255,.14);
+    }
+    .scene-3d .map-grid > .absolute.bottom-5 {
+      transform: translateZ(34px);
+    }
+    .scene-3d > .absolute.z-10 {
+      transform: translateZ(48px);
+      box-shadow: 0 18px 38px rgba(0,0,0,.2);
+    }
+    #home .bg-amber-400:not(.text-amber-400) {
+      box-shadow: 0 8px 0 #d89213, 0 14px 28px rgba(255, 182, 41, .2);
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+    #home a.bg-amber-400:hover {
+      transform: translateY(2px);
+      box-shadow: 0 5px 0 #d89213, 0 9px 20px rgba(255, 182, 41, .2);
+    }
+    .depth-card > span:first-child { transform: translateZ(16px); }
+    @media (max-width: 640px) {
+      .scene-3d .map-grid { transform: rotateY(calc(-2deg + var(--tilt-y, 0deg))) rotateX(calc(1deg + var(--tilt-x, 0deg))); }
+      .scene-3d:hover .map-grid { transform: rotateY(calc(-1deg + var(--tilt-y, 0deg))) rotateX(var(--tilt-x, 0deg)) translateY(-2px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .depth-card, .scene-3d .map-grid, #home .bg-amber-400:not(.text-amber-400), .section-heading, .step-number {
+        transition: none;
+        transform: none;
+      }
+    }
+    .route-line {
+      background: none;
+      border: 2px dashed rgba(255,182,41,.85);
+      border-right: 0;
+      border-bottom: 0;
+      border-radius: 100% 0 0;
+      transform: rotate(-17deg);
+    }
+    .whatsapp-pulse { animation: pulse-ring 2.2s ease-out infinite; }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, .42); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    summary::-webkit-details-marker { display: none; }
+    details[open] .faq-plus { transform: rotate(45deg); }
+    .faq-plus { transition: transform .2s ease; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Replace the sample Saudi phone number in the tel: and wa.me links before launch. -->
+  <div class="progress-track" aria-hidden="true"><div id="reading-progress"></div></div>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:right-4 focus:top-4 focus:z-[70] focus:rounded-lg focus:bg-amber-400 focus:px-4 focus:py-3 focus:font-bold focus:text-slate-950">تجاوز إلى المحتوى</a>
+  <header class="site-header fixed inset-x-0 top-0 z-30">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8" aria-label="التنقل الرئيسي">
+      <a href="#home" class="flex items-center gap-3 text-white" aria-label="منقذ، الصفحة الرئيسية">
+        <span class="grid h-11 w-11 place-items-center rounded-2xl bg-amber-400 text-slate-950 shadow-lg shadow-amber-400/20">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 15.5 6.7 9a2 2 0 0 1 1.94-1.5h6.72A2 2 0 0 1 17.3 9l1.7 6.5M4 15h16v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3Zm1-3h14M7.5 15.5h.01M16.5 15.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="m9 12 2-2 1.5 1.5L15 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>
+          <span class="block text-xl font-black tracking-tight">منقذ</span>
+          <span class="block text-[10px] font-medium tracking-[.2em] text-slate-300">MONQETH ROADSIDE</span>
+        </span>
+      </a>
+      <div class="hidden items-center gap-7 text-sm font-medium text-slate-200 lg:flex">
+        <a class="transition hover:text-amber-300" href="#services">خدماتنا</a>
+        <a class="transition hover:text-amber-300" href="#steps">كيف نعمل</a>
+        <a class="transition hover:text-amber-300" href="#pricing">الأسعار</a>
+        <a class="transition hover:text-amber-300" href="#audience">لمن منقذ؟</a>
+        <a class="transition hover:text-amber-300" href="#faq">الأسئلة الشائعة</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle" type="button" class="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-white transition hover:bg-white/10" aria-label="تفعيل الوضع الداكن" title="تغيير المظهر">
+          <svg id="sun-icon" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <svg id="moon-icon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a href="tel:+966500000000" class="hidden items-center gap-2 rounded-full bg-amber-400 px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-amber-300 sm:inline-flex">
+          <span>اتصل الآن</span><span aria-hidden="true">↗</span>
+        </a>
+        <button id="mobile-menu-toggle" type="button" class="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-white lg:hidden" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="menu-open-icon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg id="menu-close-icon" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-nav mx-4 mt-1 rounded-2xl border p-3 shadow-xl backdrop-blur-xl lg:hidden" hidden>
+      <a href="#services">خدماتنا</a><a href="#steps">كيف نعمل</a><a href="#pricing">الأسعار</a><a href="#audience">لمن منقذ؟</a><a href="#faq">الأسئلة الشائعة</a>
+      <a href="tel:+966500000000" class="font-bold text-amber-700 dark:text-amber-300">اتصل للطوارئ</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="relative isolate min-h-[720px] overflow-hidden bg-[#101827] text-white transition-colors duration-300 lg:min-h-[760px]">
+      <div class="hero-grid absolute inset-0 -z-10 opacity-70"></div>
+      <div class="absolute -left-40 top-28 -z-10 h-96 w-96 rounded-full bg-amber-400/10 blur-[100px]"></div>
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-36 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:pb-24 lg:pt-40">
+        <div class="max-w-2xl">
+          <div class="mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[.06] px-4 py-2 text-sm text-slate-200">
+            <span class="relative flex h-2.5 w-2.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70"></span><span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400"></span></span>
+            <span>على الطريق معك، ٢٤ ساعة / ٧ أيام</span>
+          </div>
+          <h1 class="text-4xl font-black leading-[1.25] tracking-tight sm:text-5xl lg:text-[4.15rem]">
+            تعطّلت سيارتك؟<br>
+            <span class="text-amber-400">طريقك أأمن</span> معنا.
+          </h1>
+          <p class="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
+            مساعدة طريق وسحب عند الطلب، بسعر تعرفه قبل الانطلاق وفنيين موثوقين يتابعونك خطوة بخطوة — حتى خارج المدينة.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="https://wa.me/201121121031?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%86%D9%82%D8%B0%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B1%D8%A7%D8%A8%D8%B7%20%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20%D8%B9%D9%86%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%D9%87." target="_blank" rel="noopener noreferrer" class="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-amber-400 px-7 font-bold text-slate-950 shadow-xl shadow-amber-400/10 transition hover:-translate-y-0.5 hover:bg-amber-300">
+              <span>اطلب رابط التطبيق</span>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5 5 5M5 15v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="tel:+966500000000" class="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border border-white/20 px-7 font-bold text-white transition hover:border-amber-300 hover:bg-white/5">
+              <svg class="h-5 w-5 text-amber-400" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 16.4v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 10.2 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.8 3.2 2 2 0 0 1 3.79 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L7.76 8.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 21 16.4Z" transform="translate(1 1)" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>اتصل للطوارئ</span>
+            </a>
+          </div>
+          <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-slate-300">
+            <span class="flex items-center gap-2"><span class="text-amber-400">✓</span> السعر قبل الخدمة</span>
+            <span class="flex items-center gap-2"><span class="text-amber-400">✓</span> فنيون تم التحقق منهم</span>
+            <span class="flex items-center gap-2"><span class="text-amber-400">✓</span> دعم على مدار الساعة</span>
+          </div>
+        </div>
+
+        <div class="scene-3d relative mx-auto w-full max-w-[500px]">
+          <div class="absolute -right-5 top-16 z-10 rounded-2xl border border-white/10 bg-[#1a283a]/95 p-4 shadow-2xl backdrop-blur-md sm:-right-8">
+            <div class="flex items-center gap-3">
+              <span class="grid h-10 w-10 place-items-center rounded-xl bg-emerald-400/15 text-emerald-300">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+              </span>
+              <div><p class="text-xs text-slate-400">معاينة توضيحية</p><p class="mt-1 text-sm font-bold">تتبّع المساعدة على الخريطة</p></div>
+            </div>
+          </div>
+          <div class="map-grid relative h-[390px] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl shadow-black/30 sm:h-[440px]">
+            <div class="absolute inset-0 opacity-30">
+              <div class="absolute left-[12%] top-[15%] h-[1px] w-[90%] rotate-[21deg] bg-slate-400"></div>
+              <div class="absolute left-[7%] top-[47%] h-[2px] w-[100%] -rotate-[13deg] bg-slate-400"></div>
+              <div class="absolute left-[23%] top-[72%] h-[1px] w-[90%] rotate-[8deg] bg-slate-400"></div>
+              <div class="absolute left-[30%] top-[-10%] h-[120%] w-[1px] rotate-[24deg] bg-slate-400"></div>
+              <div class="absolute left-[70%] top-[-10%] h-[120%] w-[1px] -rotate-[17deg] bg-slate-400"></div>
+            </div>
+            <div class="absolute left-[10%] top-[16%] rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-300">طريق الملك فهد</div>
+            <div class="absolute right-[12%] top-[64%] rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-300">مخرج ٨</div>
+            <div class="route-line absolute left-[23%] top-[32%] h-36 w-56"></div>
+            <div class="absolute left-[19%] top-[28%] grid h-10 w-10 place-items-center rounded-full border-4 border-[#152338] bg-amber-400 text-slate-950 shadow-[0_0_30px_rgba(255,182,41,.55)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" fill="currentColor"/></svg>
+            </div>
+            <div class="absolute right-[23%] top-[62%] grid h-12 w-12 place-items-center rounded-full border-4 border-[#152338] bg-emerald-400 text-slate-950 shadow-[0_0_30px_rgba(52,211,153,.35)]">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 15.5 6.7 9a2 2 0 0 1 1.94-1.5h6.72A2 2 0 0 1 17.3 9l1.7 6.5M4 15h16v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3Zm1-3h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-[#101827]/90 p-4 shadow-xl backdrop-blur-lg sm:bottom-7 sm:left-7 sm:right-7 sm:p-5">
+              <div class="flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="grid h-11 w-11 place-items-center rounded-full bg-slate-700 text-sm font-bold text-white">م</div>
+                  <div><p class="font-bold">فني منقذ</p><p class="mt-1 text-xs text-slate-400">سحب وإنقاذ · مقدم خدمة موثّق</p></div>
+                </div>
+                <div class="text-left"><p class="text-xs text-slate-400">وقت الوصول</p><p class="mt-1 text-sm font-black text-amber-400">حسب موقعك</p></div>
+              </div>
+              <div class="mt-4 h-1.5 overflow-hidden rounded-full bg-white/10"><div class="h-full w-[68%] rounded-full bg-amber-400"></div></div>
+              <div class="mt-3 flex items-center justify-between text-xs text-slate-400"><span>تفاصيل الطلب تظهر بعد التأكيد</span><span>تتبّع مباشر</span></div>
+            </div>
+          </div>
+          <div class="absolute -bottom-5 -left-3 rounded-2xl border border-white/10 bg-[#1a283a] px-4 py-3 shadow-xl sm:-left-7">
+            <div class="flex items-center gap-2 text-sm font-bold"><span class="text-amber-400">✓</span> <span>موثوقون. واضحون. معك.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-l from-transparent via-white/15 to-transparent"></div>
+    </section>
+
+    <section class="site-section theme-page px-5 py-8 transition-colors duration-300 lg:px-8">
+      <div class="depth-card mx-auto grid max-w-7xl grid-cols-2 gap-6 rounded-2xl border theme-line theme-surface px-5 py-6 shadow-sm sm:grid-cols-4 sm:px-8">
+        <div class="text-center"><p class="text-2xl font-black tracking-tight sm:text-3xl">٢٤/٧</p><p class="mt-1 text-xs theme-muted sm:text-sm">جاهزون دائمًا</p></div>
+        <div class="text-center"><p class="text-2xl font-black tracking-tight sm:text-3xl">سعر واضح</p><p class="mt-1 text-xs theme-muted sm:text-sm">قبل قبول الطلب</p></div>
+        <div class="text-center"><p class="text-2xl font-black tracking-tight sm:text-3xl">تتبّع حي</p><p class="mt-1 text-xs theme-muted sm:text-sm">اعرف مكان المساعدة</p></div>
+        <div class="text-center"><p class="text-2xl font-black tracking-tight sm:text-3xl">داخل وخارج</p><p class="mt-1 text-xs theme-muted sm:text-sm">المدينة والطرق البرية</p></div>
+      </div>
+    </section>
+
+    <section id="steps" class="site-section steps-band theme-page px-5 py-20 transition-colors duration-300 lg:px-8 lg:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="section-heading mx-auto max-w-2xl text-center">
+          <span class="text-sm font-bold text-amber-600 dark:text-amber-400">بخطوات بسيطة</span>
+          <h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">المساعدة تبدأ من هنا</h2>
+          <p class="mt-4 leading-7 theme-muted">من طلبك حتى وصول المساعدة — كل خطوة واضحة وتحت سيطرتك.</p>
+        </div>
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+          <article class="depth-card rounded-3xl border theme-line theme-surface p-7">
+            <span class="step-number grid h-12 w-12 place-items-center rounded-2xl bg-amber-400 text-lg font-black text-slate-950">١</span>
+            <h3 class="mt-6 text-xl font-black">أرسل موقعك واحتياجك</h3>
+            <p class="mt-3 leading-7 theme-muted">حدد موقعك ونوع المساعدة المطلوبة، مثل السحب أو تشغيل البطارية.</p>
+          </article>
+          <article class="depth-card rounded-3xl border theme-line theme-surface p-7">
+            <span class="step-number grid h-12 w-12 place-items-center rounded-2xl bg-amber-400 text-lg font-black text-slate-950">٢</span>
+            <h3 class="mt-6 text-xl font-black">راجع السعر والتفاصيل</h3>
+            <p class="mt-3 leading-7 theme-muted">اطّلع على التكلفة التقديرية وبيانات مقدم الخدمة قبل تأكيد الطلب.</p>
+          </article>
+          <article class="depth-card rounded-3xl border theme-line theme-surface p-7">
+            <span class="step-number grid h-12 w-12 place-items-center rounded-2xl bg-amber-400 text-lg font-black text-slate-950">٣</span>
+            <h3 class="mt-6 text-xl font-black">تابع المساعدة حتى وصولها</h3>
+            <p class="mt-3 leading-7 theme-muted">تابع موقع الفني ووقت الوصول المتوقع، وتواصل معه عند الحاجة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="site-section theme-page px-5 py-20 transition-colors duration-300 lg:px-8 lg:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="section-heading mx-auto max-w-2xl text-center">
+          <span class="text-sm font-bold text-amber-600 dark:text-amber-400">المشكلة لها حل</span>
+          <h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">وداعًا للانتظار والتكلفة المجهولة</h2>
+          <p class="mt-4 leading-7 theme-muted">وقت تعطل السيارة صعب بما يكفي. خلّ المساعدة تكون أسهل جزء في يومك.</p>
+        </div>
+        <div class="mt-12 grid gap-5 md:grid-cols-2">
+          <article class="depth-card rounded-3xl border theme-line theme-surface p-7 sm:p-9">
+            <div class="mb-6 flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-xl bg-rose-100 text-rose-600 dark:bg-rose-400/10 dark:text-rose-300">×</span><h3 class="text-xl font-black">الطريقة المعتادة</h3></div>
+            <ul class="space-y-4 theme-muted">
+              <li class="flex gap-3"><span class="text-rose-500">—</span><span>اتصالات كثيرة، ولا تعرف من سيصل أو متى.</span></li>
+              <li class="flex gap-3"><span class="text-rose-500">—</span><span>تكلفة تتغير بعد وصول السطحة.</span></li>
+              <li class="flex gap-3"><span class="text-rose-500">—</span><span>لا يوجد تتبّع أو معلومات عن مقدم الخدمة.</span></li>
+            </ul>
+          </article>
+          <article class="depth-card relative overflow-hidden rounded-3xl border border-amber-400/40 bg-amber-50 p-7 dark:bg-amber-400/[.06] sm:p-9">
+            <div class="absolute -left-12 -top-14 h-40 w-40 rounded-full bg-amber-300/20 blur-3xl"></div>
+            <div class="relative mb-6 flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-xl bg-amber-400 text-slate-950">✓</span><h3 class="text-xl font-black">مع منقذ</h3></div>
+            <ul class="relative space-y-4">
+              <li class="flex gap-3"><span class="font-bold text-amber-600 dark:text-amber-400">✓</span><span>طلب واحد، ومساعدة متاحة ٢٤/٧.</span></li>
+              <li class="flex gap-3"><span class="font-bold text-amber-600 dark:text-amber-400">✓</span><span>سعر مقدّم وواضح قبل تأكيدك.</span></li>
+              <li class="flex gap-3"><span class="font-bold text-amber-600 dark:text-amber-400">✓</span><span>فني موثّق وموقعه ووقت وصوله أمامك.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="site-section theme-surface border-y theme-line px-5 py-20 transition-colors duration-300 lg:px-8 lg:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div class="section-heading"><span class="text-sm font-bold text-amber-600 dark:text-amber-400">مساعدة مصممة لك</span><h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">أكثر من مجرد سطحة</h2></div>
+          <p class="max-w-md leading-7 theme-muted">من بطارية فارغة إلى إنقاذ في البر — الخبرة والمساعدة المناسبة على بُعد طلب.</p>
+        </div>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="depth-card rounded-2xl border theme-line theme-page p-6">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-amber-100 text-amber-700 dark:bg-amber-400/10 dark:text-amber-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20m7-16H9a4 4 0 0 0 0 8h6a4 4 0 0 1 0 8H5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+            <h3 class="mt-5 text-lg font-black">سعر مقدّم</h3><p class="mt-2 text-sm leading-6 theme-muted">اعرف التكلفة قبل تأكيد الطلب. لا مفاجآت ولا تفاوض على الطريق.</p>
+          </article>
+          <article class="depth-card rounded-2xl border theme-line theme-page p-6">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-sky-100 text-sky-700 dark:bg-sky-400/10 dark:text-sky-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg></span>
+            <h3 class="mt-5 text-lg font-black">تتبّع مباشر</h3><p class="mt-2 text-sm leading-6 theme-muted">تابع الفني على الخريطة واعرف وقت وصوله من لحظة قبول الطلب.</p>
+          </article>
+          <article class="depth-card rounded-2xl border theme-line theme-page p-6">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-100 text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 22 1.5-.7C18.6 19 21 15.1 21 9V5l-9-3-9 3v4c0 6.1 2.4 10 7.5 12.3L12 22Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.5 12 2.2 2.2 4.8-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3 class="mt-5 text-lg font-black">فنيون موثّقون</h3><p class="mt-2 text-sm leading-6 theme-muted">نعرض معلومات مقدم الخدمة وتقييماته لتطلب وأنت مطمئن.</p>
+          </article>
+          <article class="depth-card rounded-2xl border theme-line theme-page p-6">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-orange-100 text-orange-700 dark:bg-orange-400/10 dark:text-orange-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 17.5 5 11h9l3 3h3l2 3.5V20h-2a2 2 0 0 1-4 0H9a2 2 0 0 1-4 0H3v-2.5ZM7 11l2-5h7l3 5M7 16h.01M17 16h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3 class="mt-5 text-lg font-black">إنقاذ البر 4×4</h3><p class="mt-2 text-sm leading-6 theme-muted">فرق مجهزة للطرق الوعرة، مع معدات مناسبة للمساعدة خارج المدينة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="site-section theme-page px-5 py-20 transition-colors duration-300 lg:px-8 lg:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="section-heading mx-auto max-w-2xl text-center">
+          <span class="text-sm font-bold text-amber-600 dark:text-amber-400">وضوح من البداية</span>
+          <h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">تعرف على السعر قبل ما تقرر</h2>
+          <p class="mt-4 leading-7 theme-muted">تختلف التكلفة حسب نوع الخدمة وموقعك والمسافة. نعرض السعر التقديري قبل تأكيد الطلب، ولا نضيف خدمة دون موافقتك.</p>
+        </div>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="pricing-card depth-card rounded-2xl border theme-line theme-surface p-6">
+            <span class="text-sm font-bold text-amber-600 dark:text-amber-400">مساعدة سريعة</span><h3 class="mt-3 text-xl font-black">بطارية وإطارات</h3>
+            <p class="mt-3 text-sm leading-6 theme-muted">تشغيل بطارية، تبديل إطار أو مساعدة بسيطة على الطريق.</p>
+            <p class="mt-5 border-t theme-line pt-4 text-sm font-bold">السعر يظهر قبل التأكيد</p>
+            <a class="mt-5 inline-flex font-bold text-amber-700 hover:underline dark:text-amber-300" href="https://wa.me/201121121031?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%86%D9%82%D8%B0%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B3%D8%B9%D8%B1%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%A7%D9%84%D8%A8%D8%B7%D8%A7%D8%B1%D9%8A%D8%A9%20%D8%A3%D9%88%20%D8%A7%D9%84%D8%A5%D8%B7%D8%A7%D8%B1%D8%A7%D8%AA." target="_blank" rel="noopener noreferrer">اسأل عن السعر <span class="mr-2" aria-hidden="true">←</span></a>
+          </article>
+          <article class="pricing-card depth-card rounded-2xl border theme-line theme-surface p-6">
+            <span class="text-sm font-bold text-amber-600 dark:text-amber-400">نقل آمن</span><h3 class="mt-3 text-xl font-black">سحب ونقل</h3>
+            <p class="mt-3 text-sm leading-6 theme-muted">نقل المركبة إلى الوجهة التي تختارها، وفق نوع المركبة والمسافة.</p>
+            <p class="mt-5 border-t theme-line pt-4 text-sm font-bold">السعر يظهر قبل التأكيد</p>
+            <a class="mt-5 inline-flex font-bold text-amber-700 hover:underline dark:text-amber-300" href="https://wa.me/201121121031?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%86%D9%82%D8%B0%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B3%D8%B9%D8%B1%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%B3%D8%AD%D8%A8%20%D9%88%D9%86%D9%82%D9%84%20%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A9." target="_blank" rel="noopener noreferrer">اسأل عن السعر <span class="mr-2" aria-hidden="true">←</span></a>
+          </article>
+          <article class="pricing-card depth-card rounded-2xl border theme-line theme-surface p-6">
+            <span class="text-sm font-bold text-amber-600 dark:text-amber-400">على الطريق</span><h3 class="mt-3 text-xl font-black">وقود ومساعدة ميدانية</h3>
+            <p class="mt-3 text-sm leading-6 theme-muted">خدمات مساعدة إضافية بحسب احتياجك وموقعك وتوفر الفرق.</p>
+            <p class="mt-5 border-t theme-line pt-4 text-sm font-bold">السعر يظهر قبل التأكيد</p>
+            <a class="mt-5 inline-flex font-bold text-amber-700 hover:underline dark:text-amber-300" href="https://wa.me/201121121031?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%86%D9%82%D8%B0%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B3%D8%B9%D8%B1%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%A7%D9%84%D9%88%D9%82%D9%88%D8%AF%20%D8%A3%D9%88%20%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D8%AF%D8%A7%D9%86%D9%8A%D8%A9." target="_blank" rel="noopener noreferrer">اسأل عن السعر <span class="mr-2" aria-hidden="true">←</span></a>
+          </article>
+          <article class="pricing-card depth-card rounded-2xl border theme-line theme-surface p-6">
+            <span class="text-sm font-bold text-amber-600 dark:text-amber-400">خارج المدينة</span><h3 class="mt-3 text-xl font-black">إنقاذ 4×4</h3>
+            <p class="mt-3 text-sm leading-6 theme-muted">تجهيز للطرق الوعرة والبر، حسب الموقع وطبيعة الحالة.</p>
+            <p class="mt-5 border-t theme-line pt-4 text-sm font-bold">السعر يظهر قبل التأكيد</p>
+            <a class="mt-5 inline-flex font-bold text-amber-700 hover:underline dark:text-amber-300" href="https://wa.me/201121121031?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%86%D9%82%D8%B0%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B3%D8%B9%D8%B1%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%A7%D9%84%D8%A5%D9%86%D9%82%D8%A7%D8%B0%20%D8%A8%D8%A7%D9%84%D8%A8%D8%B1." target="_blank" rel="noopener noreferrer">اسأل عن السعر <span class="mr-2" aria-hidden="true">←</span></a>
+          </article>
+        </div>
+        <p class="mt-5 text-center text-xs theme-muted">لا توجد أسعار ثابتة معلنة حتى الآن؛ تختلف الأسعار حسب الخدمة والموقع، ويجب تأكيدها قبل تنفيذ الطلب.</p>
+      </div>
+    </section>
+
+    <section id="plans" class="site-section theme-page px-5 py-20 transition-colors duration-300 lg:px-8 lg:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+        <div>
+          <span class="text-sm font-bold text-amber-600 dark:text-amber-400">راحة بال، طوال السنة</span>
+          <h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">مشاوير أكثر.<br>قلق أقل.</h2>
+          <p class="mt-5 max-w-lg leading-8 theme-muted">لأن بعض الرحلات لا تنتظر. استكشف عضوية منقذ بلس لتكون المساعدة أقرب لك متى احتجتها.</p>
+          <ul class="mt-7 space-y-3 text-sm">
+            <li class="flex items-center gap-3"><span class="grid h-6 w-6 place-items-center rounded-full bg-amber-400/15 text-xs font-bold text-amber-700 dark:text-amber-300">✓</span> أولوية في توجيه أقرب فني</li>
+            <li class="flex items-center gap-3"><span class="grid h-6 w-6 place-items-center rounded-full bg-amber-400/15 text-xs font-bold text-amber-700 dark:text-amber-300">✓</span> خدمات مساعدة مخصصة للأعضاء</li>
+            <li class="flex items-center gap-3"><span class="grid h-6 w-6 place-items-center rounded-full bg-amber-400/15 text-xs font-bold text-amber-700 dark:text-amber-300">✓</span> خيارات للأفراد والعائلات والأساطيل</li>
+          </ul>
+          <a href="https://wa.me/201121121031?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%86%D9%82%D8%B0%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D8%B6%D9%88%D9%8A%D8%A9%20%D9%85%D9%86%D9%82%D8%B0%20%D8%A8%D9%84%D8%B3." target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center gap-2 font-bold text-amber-700 transition hover:gap-3 dark:text-amber-400">استفسر عن منقذ بلس <span aria-hidden="true">←</span></a>
+        </div>
+        <div class="relative mx-auto w-full max-w-lg">
+          <div class="absolute -inset-4 rounded-[2rem] bg-amber-400/10 blur-2xl"></div>
+          <div class="plan-card depth-card relative overflow-hidden rounded-3xl bg-[#101827] p-7 text-white shadow-2xl sm:p-9">
+            <div class="absolute -left-16 -top-20 h-52 w-52 rounded-full border border-white/10"></div><div class="absolute -left-8 -top-12 h-36 w-36 rounded-full border border-white/10"></div>
+            <div class="relative flex items-start justify-between gap-4">
+              <div><span class="rounded-full bg-amber-400/15 px-3 py-1.5 text-xs font-bold text-amber-300">معاينة مبدئية</span><h3 class="mt-5 text-2xl font-black">منقذ بلس</h3><p class="mt-2 text-sm text-slate-400">عضوية مصممة لرحلاتك</p></div>
+              <span class="grid h-14 w-14 place-items-center rounded-2xl bg-amber-400 text-slate-950"><svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2 2.4 6.4L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.6L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m19 16 .9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16Z" fill="currentColor"/></svg></span>
+            </div>
+            <div class="relative my-7 h-px bg-white/10"></div>
+            <div class="relative space-y-4 text-sm text-slate-200">
+              <p class="flex items-center gap-3"><span class="text-amber-400">✓</span> أولوية في تلقي المساعدة</p>
+              <p class="flex items-center gap-3"><span class="text-amber-400">✓</span> خيارات تغطية تناسب احتياجك</p>
+              <p class="flex items-center gap-3"><span class="text-amber-400">✓</span> دعم للأفراد والأساطيل</p>
+            </div>
+            <a href="https://wa.me/201121121031?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%86%D9%82%D8%B0%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%84%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%B9%D8%B6%D9%88%D9%8A%D8%A9%20%D9%85%D9%86%D9%82%D8%B0%20%D8%A8%D9%84%D8%B3." target="_blank" rel="noopener noreferrer" class="relative mt-8 flex min-h-12 items-center justify-center rounded-xl bg-amber-400 px-5 font-bold text-slate-950 transition hover:bg-amber-300">استفسر عن العضوية عبر واتساب</a>
+            <p class="relative mt-3 text-center text-xs text-slate-500">تفاصيل التغطية والأسعار تُعلن عند توفرها</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="site-section px-5 py-16 lg:px-8">
+      <div class="depth-card relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-amber-400 px-6 py-12 text-center text-slate-950 sm:px-12 sm:py-16">
+        <div class="absolute -left-16 -top-24 h-64 w-64 rounded-full border border-slate-950/10"></div><div class="absolute -left-5 -top-14 h-44 w-44 rounded-full border border-slate-950/10"></div>
+        <div class="relative mx-auto max-w-2xl">
+          <span class="text-sm font-bold text-slate-800">لا تترك التعطّل يعطّل يومك</span>
+          <h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">خلك مطمئن. منقذ معك.</h2>
+          <p class="mt-4 leading-7 text-slate-800">روابط التحميل ستُضاف عند الإطلاق. تواصل معنا عبر واتساب للاستفسار وطلب رابط التحميل عند توفره.</p>
+          <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+            <a href="tel:+966500000000" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-slate-950 px-6 font-bold text-white transition hover:bg-slate-800"><span>اتصل الآن</span><span aria-hidden="true">↗</span></a>
+            <a href="https://wa.me/201121121031?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%86%D9%82%D8%B0%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20%D9%88%D8%B7%D9%84%D8%A8%20%D8%B1%D8%A7%D8%A8%D8%B7%20%D8%A7%D9%84%D8%AA%D8%AD%D9%85%D9%8A%D9%84." target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-slate-950/20 px-6 font-bold transition hover:bg-slate-950/5">تواصل عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="audience" class="site-section theme-surface border-y theme-line px-5 py-20 transition-colors duration-300 lg:px-8 lg:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="section-heading mx-auto max-w-2xl text-center">
+          <span class="text-sm font-bold text-amber-600 dark:text-amber-400">مصمم لرحلتك</span>
+          <h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">منقذ معك، أيًّا كان مشوارك</h2>
+          <p class="mt-4 leading-7 theme-muted">خدمة تراعي اختلاف احتياجات السائقين، من مشوارك اليومي إلى أسطول شركتك.</p>
+        </div>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="depth-card rounded-2xl border theme-line theme-page p-6">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-amber-400/15 text-amber-700 dark:text-amber-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 15.5 6.7 9a2 2 0 0 1 1.94-1.5h6.72A2 2 0 0 1 17.3 9l1.7 6.5M4 15h16v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3Zm1-3h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3 class="mt-4 text-lg font-black">للمشاوير اليومية</h3>
+            <p class="mt-2 text-sm leading-6 theme-muted">حل سريع وواضح إذا تعطلت سيارتك في طريق العمل أو داخل المدينة.</p>
+          </article>
+          <article class="depth-card rounded-2xl border theme-line theme-page p-6">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-sky-400/15 text-sky-700 dark:text-sky-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="m15.8 8.2-2.5 5.1-5.1 2.5 2.5-5.1 5.1-2.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span><h3 class="mt-4 text-lg font-black">للمسافرين</h3>
+            <p class="mt-2 text-sm leading-6 theme-muted">تتبّع المساعدة واطلب دعمًا مناسبًا لموقعك على الطريق أو خارجه.</p>
+          </article>
+          <article class="depth-card rounded-2xl border theme-line theme-page p-6">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-400/15 text-emerald-700 dark:text-emerald-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 20v-1.5A5.5 5.5 0 0 1 9 13h.5a5.5 5.5 0 0 1 5.5 5.5V20M16 5.5a3 3 0 0 1 0 5.8m2 2.1a5.5 5.5 0 0 1 3 5.1V20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3 class="mt-4 text-lg font-black">للسائقات والعائلة</h3>
+            <p class="mt-2 text-sm leading-6 theme-muted">معلومات واضحة عن مقدم الخدمة وموقعه، ومساعدة متاحة لراحة بالك في كل مشوار.</p>
+          </article>
+          <article class="depth-card rounded-2xl border theme-line theme-page p-6">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-orange-400/15 text-orange-700 dark:text-orange-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 10h1m4 0h1m-6 4h1m4 0h1m-5 7v-4h3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3 class="mt-4 text-lg font-black">للشركات والأساطيل</h3>
+            <p class="mt-2 text-sm leading-6 theme-muted">حلول مساعدة للمركبات التشغيلية، مع إمكانية التواصل لمناقشة احتياج الأسطول.</p>
+            <a class="mt-4 inline-flex text-sm font-bold text-amber-700 hover:underline dark:text-amber-300" href="https://wa.me/201121121031?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%86%D9%82%D8%B0%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A3%D8%B3%D8%B7%D9%88%D9%84%D8%A7%D8%AA." target="_blank" rel="noopener noreferrer">استفسر عن الأساطيل <span class="mr-1" aria-hidden="true">←</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="site-section theme-page px-5 py-20 transition-colors duration-300 lg:px-8 lg:py-28">
+      <div class="mx-auto max-w-3xl">
+        <div class="section-heading text-center"><span class="text-sm font-bold text-amber-600 dark:text-amber-400">إجابات واضحة</span><h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">أسئلة قد تخطر ببالك</h2></div>
+        <div class="mt-10 divide-y theme-line border-y">
+          <details class="depth-card group rounded-xl px-4 py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold"><span>كيف أعرف تكلفة الخدمة؟</span><span class="faq-plus text-2xl font-normal text-amber-600 dark:text-amber-400" aria-hidden="true">+</span></summary>
+            <p class="mt-4 max-w-2xl leading-7 theme-muted">تظهر لك التكلفة التقديرية قبل تأكيد الطلب، حتى تختار وأنت على معرفة بالسعر.</p>
+          </details>
+          <details class="depth-card group rounded-xl px-4 py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold"><span>هل الخدمة متاحة خارج المدينة؟</span><span class="faq-plus text-2xl font-normal text-amber-600 dark:text-amber-400" aria-hidden="true">+</span></summary>
+            <p class="mt-4 max-w-2xl leading-7 theme-muted">نعم، تتضمن خدماتنا خيارات للإنقاذ في الطرق البرية والوعرة بحسب التغطية وتوفر الفرق في موقعك.</p>
+          </details>
+          <details class="depth-card group rounded-xl px-4 py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold"><span>كيف أتابع الفني بعد قبول الطلب؟</span><span class="faq-plus text-2xl font-normal text-amber-600 dark:text-amber-400" aria-hidden="true">+</span></summary>
+            <p class="mt-4 max-w-2xl leading-7 theme-muted">يتيح التطبيق متابعة موقع الفني ووقت الوصول المتوقع ومعلومات مقدم الخدمة.</p>
+          </details>
+          <details class="depth-card group rounded-xl px-4 py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold"><span>ماذا أفعل إذا احتجت مساعدة الآن؟</span><span class="faq-plus text-2xl font-normal text-amber-600 dark:text-amber-400" aria-hidden="true">+</span></summary>
+            <p class="mt-4 max-w-2xl leading-7 theme-muted">اتصل بنا مباشرة أو تواصل عبر واتساب باستخدام أزرار المساعدة في الصفحة.</p>
+          </details>
+          <details class="depth-card group rounded-xl px-4 py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold"><span>هل التطبيق متاح للتحميل الآن؟</span><span class="faq-plus text-2xl font-normal text-amber-600 dark:text-amber-400" aria-hidden="true">+</span></summary>
+            <p class="mt-4 max-w-2xl leading-7 theme-muted">روابط التحميل ستُضاف عند الإطلاق. تواصل معنا عبر واتساب للاستفسار وطلب رابط التحميل عند توفره.</p>
+          </details>
+          <details class="depth-card group rounded-xl px-4 py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold"><span>هل يمكن طلب خدمة لأسطول شركة؟</span><span class="faq-plus text-2xl font-normal text-amber-600 dark:text-amber-400" aria-hidden="true">+</span></summary>
+            <p class="mt-4 max-w-2xl leading-7 theme-muted">نعم، تواصل معنا عبر واتساب لمناقشة احتياجات أسطولك وتفاصيل الخدمة المناسبة.</p>
+          </details>
+          <details class="depth-card group rounded-xl px-4 py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold"><span>هل أستطيع معرفة السعر قبل تنفيذ الخدمة؟</span><span class="faq-plus text-2xl font-normal text-amber-600 dark:text-amber-400" aria-hidden="true">+</span></summary>
+            <p class="mt-4 max-w-2xl leading-7 theme-muted">نعم، يجب أن يظهر السعر التقديري بناءً على الخدمة والموقع قبل تأكيد الطلب، وتوافقك مطلوب قبل بدء الخدمة.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#101827] px-5 pb-8 pt-12 text-white transition-colors duration-300 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex flex-col justify-between gap-8 border-b border-white/10 pb-8 sm:flex-row sm:items-center">
+        <a href="#home" class="flex items-center gap-3">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-amber-400 text-slate-950">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 15.5 6.7 9a2 2 0 0 1 1.94-1.5h6.72A2 2 0 0 1 17.3 9l1.7 6.5M4 15h16v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3Zm1-3h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span><span><span class="block text-lg font-black">منقذ</span><span class="text-xs text-slate-400">طريقك أأمن معنا</span></span>
+        </a>
+        <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
+          <a class="transition hover:text-amber-300" href="#services">خدماتنا</a><a class="transition hover:text-amber-300" href="#steps">كيف نعمل</a><a class="transition hover:text-amber-300" href="#pricing">الأسعار</a><a class="transition hover:text-amber-300" href="#plans">منقذ بلس</a><a class="transition hover:text-amber-300" href="#faq">الأسئلة الشائعة</a><a class="transition hover:text-amber-300" href="tel:+966500000000">اتصل بنا</a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>© <span id="year"></span> منقذ. جميع الحقوق محفوظة.</p><p>مساعدتك على الطريق، بثقة ووضوح.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/201121121031?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%86%D9%82%D8%B0%D8%8C%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D8%B7%D8%B1%D9%8A%D9%82." target="_blank" rel="noopener noreferrer" class="whatsapp-pulse fixed bottom-5 left-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-xl transition hover:scale-105 sm:bottom-7 sm:left-7" aria-label="تواصل مع منقذ عبر واتساب">
+    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.55 0 .22 5.33.22 11.89c0 2.1.55 4.15 1.6 5.96L.12 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.56 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.17-3.48-8.42ZM12.1 21.78h-.01c-1.78 0-3.53-.48-5.05-1.38l-.36-.21-3.74.98 1-3.64-.24-.37a9.85 9.85 0 0 1-1.51-5.27c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.86 9.86 0 0 1 2.9 7.02c0 5.48-4.45 9.93-9.94 9.93Zm5.45-7.44c-.3-.15-1.77-.87-2.05-.97-.28-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.18.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.49-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/></svg>
+  </a>
+
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const sunIcon = document.getElementById("sun-icon");
+    const moonIcon = document.getElementById("moon-icon");
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuOpenIcon = document.getElementById("menu-open-icon");
+    const menuCloseIcon = document.getElementById("menu-close-icon");
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    const siteHeader = document.querySelector(".site-header");
+
+    function syncThemeControl() {
+      const isDark = document.documentElement.classList.contains("dark");
+      sunIcon.classList.toggle("hidden", !isDark);
+      moonIcon.classList.toggle("hidden", isDark);
+      themeToggle.setAttribute("aria-label", isDark ? "تفعيل الوضع الفاتح" : "تفعيل الوضع الداكن");
+      themeColor.setAttribute("content", isDark ? "#0c1421" : "#f7f8fa");
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      try {
+        localStorage.setItem("monqeth-theme", isDark ? "dark" : "light");
+      } catch (_) {}
+      syncThemeControl();
+    });
+
+    function setMobileMenuOpen(isOpen) {
+      mobileMenu.hidden = !isOpen;
+      mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+      mobileMenuToggle.setAttribute("aria-label", isOpen ? "إغلاق القائمة" : "فتح القائمة");
+      menuOpenIcon.classList.toggle("hidden", isOpen);
+      menuCloseIcon.classList.toggle("hidden", !isOpen);
+    }
+
+    function syncHeaderState() {
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > 24);
+    }
+
+    mobileMenuToggle.addEventListener("click", () => {
+      setMobileMenuOpen(mobileMenu.hidden);
+    });
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMobileMenuOpen(false));
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !mobileMenu.hidden) {
+        setMobileMenuOpen(false);
+        mobileMenuToggle.focus();
+      }
+    });
+
+    window.addEventListener("scroll", syncHeaderState, { passive: true });
+
+    const tiltTargets = document.querySelectorAll(".depth-card, .scene-3d .map-grid");
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      tiltTargets.forEach((element) => {
+        element.addEventListener("pointermove", (event) => {
+          const bounds = element.getBoundingClientRect();
+          const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+          const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+          element.style.setProperty("--tilt-x", `${-y * 4}deg`);
+          element.style.setProperty("--tilt-y", `${x * 4}deg`);
+        });
+        element.addEventListener("pointerleave", () => {
+          element.style.removeProperty("--tilt-x");
+          element.style.removeProperty("--tilt-y");
+        });
+      });
+    }
+
+    const progressBar = document.getElementById("reading-progress");
+    let progressFrame = 0;
+    window.addEventListener("scroll", () => {
+      if (progressFrame) return;
+      progressFrame = window.requestAnimationFrame(() => {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+        progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+        progressFrame = 0;
+      });
+    }, { passive: true });
+
+    syncThemeControl();
+    setMobileMenuOpen(false);
+    syncHeaderState();
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
